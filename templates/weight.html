@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Predicted weight for the fishes</title>
+</head>
+<body>
+	<h1>Predicted weight for the fishes from hold out data</h1>
+    <table border = 1>
+    	<thead><th>Species</th><th>Weight(lbs)</th><th>Length1</th><th>Length2</th><th>Length3</th><th>Height</th><th>Width</th></thead>
+    	{% for w, s , l1, l2, l3, h, w1 in target %}
+      <tr>
+        <td> {{w}} </td>
+        <td> {{s}} </td>
+        <td> {{l1}} </td>
+        <td> {{l2}} </td>
+        <td> {{l3}} </td>
+        <td> {{h}} </td>
+        <td> {{w1}} </td>
+
+
+      </tr>
+      {% endfor %}
+		
+        
+    </table>
+
+</body>
+</html>
