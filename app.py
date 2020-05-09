@@ -37,24 +37,27 @@ def status():
 # Created a route to display the predicted weight for hold out data in table format
 @app.route("/predict_weight")
 def predict_weight():
-        # Please enter the path for file to hold out fish data csv file
+    # Please enter the path for file to hold out fish data csv file
     file_path = "fish_holdout_demo.csv"
     
     # Convert the hold out data values to dataframe and convert it to a list to predict the weight
     df_holdout = pd.read_csv(file_path)
-    X_predict = df_holdout[['Length1', 'Length2', 'Length3', 'Height',
-       'Width']].values
+    df_holdout = pd.get_dummies(df_holdout, drop_first = True)
+    X_predict = df_holdout[['Length3', 'Height', 'Width', 'Species_Parkki', 'Species_Perch',
+       'Species_Pike', 'Species_Roach', 'Species_Smelt', 'Species_Whitefish']].values
 
     weight_predicted = clf.predict(X_predict)
     pred_wt = weight_predicted.tolist()
 
-    species = df_holdout["Species"].tolist()
+    # species = df_holdout["Species"].tolist()
     length1 = df_holdout["Length1"].tolist()
     length2 = df_holdout["Length2"].tolist()
     length3 = df_holdout["Length3"].tolist()
     height = df_holdout["Height"].tolist()
     width = df_holdout["Width"].tolist()
-    result = list(zip(species, pred_wt, length1, length2, length3, height, width))
+    result = list(zip(
+        # species,
+        pred_wt, length1, length2, length3, height, width))
     # return jsonify(result)
     return render_template("weight.html", target=result)
     

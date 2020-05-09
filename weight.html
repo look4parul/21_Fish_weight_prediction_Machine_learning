@@ -4,11 +4,13 @@
     <title>Predicted weight for the fishes</title>
 </head>
 <body>
-	<h1>Predicted weight for the fishes from hold out data</h1>
+	<h1><center>Predicted weight for the fishes from hold out data</h1>
+        
     <table border = 1>
-    	<thead><th>Predicted_Weight</th><th>Length1</th><th>Length2</th><th>Length3</th><th>Height</th><th>Width</th></thead>
-    	{% for w, l1, l2, l3, h, w1 in target %}
+    	<thead><th>Species</th><th>Weight(lbs)</th><th>Length1</th><th>Length2</th><th>Length3</th><th>Height</th><th>Width</th></thead>
+    	{% for s , w, l1, l2, l3, h, w1 in target %}
       <tr>
+        <td> {{s}} </td>
         <td> {{w}} </td>
         <td> {{l1}} </td>
         <td> {{l2}} </td>

@@ -4,10 +4,10 @@ from preprocess import prep_data
 import pandas as pd
 import os
 # Path to participant data
-path_to_csv = "fish_participant.csv"
+# path_to_csv = "fish_participant.csv"
 
 # Path to holdout data 
-# path_to_csv = "fish_participant.csv"
+# path_to_csv = "fish_holdout.csv"
 
 def predict_from_csv(path_to_csv):
 
